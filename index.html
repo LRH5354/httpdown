@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 模板 -->
+    <!-- 下载细节 -->
+    <script id="detial" type="text/html">
+        <div class="detial layui-container">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-col-xs1">名称</div>
+                    <div class="layui-col-xs2">{{ d.name}}</div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs1">路径</div>
+                    <div class="layui-col-xs2">{{d.path}}</div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs1">大小</div>
+                    <div class="layui-col-xs2">{{d.length}}</div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs1">分段</div>
+                    <div class="layui-col-xs2">{{ d.duanshu}}</div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs1">速度</div>
+                    <div class="layui-col-xs2">{{ d.speed}}</div>
+                </div>
+                <div class="layui-row">
+                    <div class="layui-col-xs1">状态</div>
+                    <div class="layui-col-xs2">{{d.statu}}</div>
+                </div>
+            </div>
+            {{# for(var i=0;i
+            <d.duanshu;i++) { }} <div class="layui-row" index="{{i}}" type='process'>
+                <div class="layui-col-xs3">
+                    <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+                        <div class="layui-progress-bar layui-bg-green" style="width: 0%;">
+                            <span class="layui-progress-text">0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-xs1">
+                    <div class="speed">xx MB/s</div>
+                </div>
+        </div>
+        {{# }}}
+        </div>
+    </script>
+    <!-- 模板 -->
+    <script type="text/javascript" src='libs/jquery/jq.js'></script>
+    <script type="text/javascript" src="libs/bootstrap/popper.min.js"></script>
+    <script type="text/javascript" src="libs/layui/layui-debug/layui.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="libs/layui/layui-debug/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="layui-tab layui-tab-brief  layui-fluid" lay-filter='demo' align='center'>
+        <ul class="layui-tab-title" align='center'>
+            <li class="layui-this">文件列表</li>
+            <li>正在下载</li>
+            <li>传输完成</li>
+            <li>更多功能</li>
+            <li>个人管理</li>
+        </ul>
+        <div class="layui-tab-content layui-container" style="height: 860px;">
+            <div class="layui-tab-item layui-show" align="center">
+                <div class="layui-container" align="center">
+                    <div class="layui-container">
+                        <div class="layui-row">
+                            <div class="layui-col-xs1">
+                                <div class="createdown">
+                                    <i class="layui-icon layui-icon-add-1"></i>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs1">
+                                <div>
+                                    <i class="layui-icon layui-icon-play"></i>
+                                </div>
+                            </div>
+                            <div class="layui-col-xs1">
+                                <div>
+                                    <i class="layui-icon layui-icon-pause"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="layui-bg-black">
+                    <div class="down-content" align='center'>
+                        <div class="layui-row">
+                            <div class="layui-col-xs3">文件名</div>
+                            <div class="layui-col-xs3">进度</div>
+                            <div class="layui-col-xs2">状态</div>
+                            <div class="layui-col-xs2">速度</div>
+                            <div class="layui-col-xs2">大小</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="layui-tab-item">
+                    2
+                </div>
+                <div class="layui-tab-item">3</div>
+                <div class="layui-tab-item">4</div>
+                <div class="layui-tab-item">5</div>
+                <div class="layui-tab-item">6</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="src/downPart.js"></script>
+<script type="text/javascript" src="src/down.js"></script>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
