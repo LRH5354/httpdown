@@ -8,14 +8,11 @@
     var counts_jindu=[];
     var pb;
     var loaded = 0;
-
     var time_init;
     var time_now;
 
-
     var downLoad = {
-        counts_jindu:'',
-        pb:'',
+
         downFile: function(url, from, to, dir, index, jiange, duanshu, length,initTime) {
             time_init=initTime;
             return new Promise((resolve, reject) => {
@@ -45,7 +42,6 @@
                     };
 
                     if (res.statusCode == '206') {
-
                         lianJieShu_OK++;
                         res.on('data', (data) => {
                                 time_now=new Date().getTime();
@@ -54,8 +50,8 @@
                                 loaded = loaded + data.length;
 
                                 counts_jindu[index].jindu= counts_jindu[index].jindu+data.length;
-                            counts_jindu[index].readStream=res;
-                           //     downLoad.counts_jindu=counts_jindu;
+                                counts_jindu[index].readStream=res;
+  
                                 var  pc = (loaded / length) * 100; //百分比
                                 $('.down-item .layui-progress-bar').css('width', `${pc}%`);
                                 $('.down-item .layui-progress-bar .layui-progress-text').text(`${Math.ceil(pc)}%`);
@@ -64,7 +60,6 @@
                                 downLoad.render(pb,counts_jindu);
                             })
                             .on('end', () => {
-                    
                                 resolve();
                             })
                             .on('error',() => {
@@ -89,7 +84,7 @@
                 url: `${url}`,
                 encoding: null,
                 headers: {
-                    Range: 'bytes=0-2'
+                    Range: 'bytes=0-0'
                 }
             }
             return new Promise((resolve, reject) => {
@@ -99,6 +94,11 @@
                     }
 
                     console.log(res.headers)
+                    var disposition=res.headers['content-disposition']
+                    console.log(disposition)  
+                    var Regx=/.filename\\*?=\"?(?:.*'')?([\"]*)\"/;
+                    var match=Regx.match(disposition);
+                    console.log('dfd',match);
                     var fileInfo = {
                          length: res.headers['content-length'], //文件的字节长度
                         'down-id':new Date().getTime(),

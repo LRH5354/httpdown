@@ -10,7 +10,7 @@ function down(uri) {
             var form = {
                 url: uri,
                 length: info.length,
-                duanshu:8,
+                duanshu:32,
                 initTime:new Date().getTime()
             }
             console.log('获取文件信息成功', form.length);
@@ -21,7 +21,7 @@ function down(uri) {
             if (fs.existsSync(path.join(downLoad.checkFilePath(dir), `pack.zip`))) {
                 fs.unlinkSync(path.join(downLoad.checkFilePath(dir), `pack.zip`))
             }
-              return downLoad.asyncDown(form, form.duanshu, form.length);
+             // return downLoad.asyncDown(form, form.duanshu, form.length);
 
         })
         .then(() => {
